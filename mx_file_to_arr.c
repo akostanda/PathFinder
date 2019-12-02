@@ -1,7 +1,7 @@
 #include "../inc/pathfinder.h"
-#include "../libmx/inc/libmx.h"
+//#include "../libmx/inc/libmx.h"
 
-int **mx_file_to_arr(const char *file) {
+char **mx_file_to_arr(const char *file) {
 	char *str = NULL;
 	char **dblstr = NULL;
 
