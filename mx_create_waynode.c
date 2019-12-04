@@ -1,18 +1,20 @@
 #include "../inc/pathfinder.h"
 //#include "../libmx/inc/libmx.h"
 
-t_ways  *mx_create_waynode(char *str, t_list *points) {
+t_ways  *mx_create_waynode(char **str, t_tops **list) {
 	t_ways *node = (t_ways*)malloc(sizeof(t_ways));
+	t_tops *pl = *list;
 
 	if (node == NULL)
 		return NULL;
-	while (points->next != NULL) {
-		if (mx_strcmp(str[0], points->data->name) == 0)
-			
-			node->top1 = points->index;
-		else if (mx_strcmp(str[1], points->data->name) == 0)
-			node->top2 = points->data->index;
-		node->distance = atoi(@str[2]);
+	while (pl->next != NULL) {
+		if (mx_strcmp(str[0], pl->name) == 0)
+			node->top1 = pl->index;
+		if (mx_strcmp(str[1], pl->name) == 0)
+			node->top2 = pl->index;
+		pl = pl->next;
 	}
+		node->distance = atoi(str[2]);
+	
 	return node;	
 }

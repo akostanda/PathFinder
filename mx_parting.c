@@ -1,10 +1,10 @@
 #include "../inc/pathfinder.h"
 //#include "../libmx/inc/libmx.h"
 
-int *mx_parting(const char *file) {
+void mx_parting(const char *file) {
 	char **strmatrix = NULL;
 	//t_list *ways = NULL;
-	t_list *islands = NULL;
+	t_tops **islands = NULL;
 	//t_tops *island = NULL;
 	char **substr = NULL;
 	//char **substr2 = NULL;
@@ -13,15 +13,15 @@ int *mx_parting(const char *file) {
 
 	strmatrix = mx_file_to_arr(file);
 	width = mx_atoi(strmatrix[0]);
-	//printf("%d\n", width);
+	printf("%d\n", width);
 	for (int i = 1; strmatrix[i]; i++) {
 		substr = mx_str_dbl_split(strmatrix[i], '-', ',');
 		for (int j = 0; j < 2; j++) {
-			island = mx_create_topnode(substr[j], count);
-			mx_push_back(&islands, island);
-			islands->next;
-			del_strarr(substr);
+			mx_push_back_tops(islands, substr[j], count);
 			count++;
+		}
+		mx_del_strarr(&substr);
+	}
 
 		
 		// substr2 = mx_strsplit(substr[1], ',');
@@ -33,10 +33,10 @@ int *mx_parting(const char *file) {
 		// printf("%d\n", island->index);
 		// count++;
 
-	}
-	while(islands->next != NULL) {
-		printf("%s-", island->name);
-		printf("%d\n", island->index);
-	}	
-	
+	// t_tops *pl = *islands;
+	// while(pl->next != NULL) {
+	// 	printf("%s-", pl->name);
+	// 	printf("%d\n", pl->index);
+	// 	pl = pl->next;
+	// }	
 }

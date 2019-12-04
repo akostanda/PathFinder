@@ -8,6 +8,7 @@ t_tops  *mx_create_topnode(char *str, int i) {
 		return NULL;
 	node->name = mx_strdup(str);
 	node->index = i;
+	node->next = NULL;
 
 	return node;	
 }
