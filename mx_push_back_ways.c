@@ -1,8 +1,8 @@
 #include "../inc/pathfinder.h"
 
-void mx_push_back_tops(t_tops **list, char *str, int i) {
-	t_tops *node = mx_create_topnode(str, i);
-	t_tops *pl = *list;
+void mx_push_back_ways(t_ways **list, t_tops ** list2, char **str) {
+	t_ways *node = mx_create_waynode(str, list2);
+	t_ways *pl = *list;
 
 	if (pl == NULL) {
 		*list = node;

@@ -2,14 +2,27 @@ NAME = pathfinder
 
 LIB = ./libmx/libmx.a \
 
-SRC = src/mx_parting.c \
+SRC = src/mx_atoi.c \
+		src/mx_count_dbl_words.c \
 		src/mx_create_topnode.c \
-		src/mx_atoi.c \
+		src/mx_create_waynode.c \
+		src/mx_file_to_arr.c \
+		src/mx_matrix_filling.c \
+		src/mx_parting.c \
+		src/mx_push_back_tops.c \
+		src/mx_push_back_ways.c \
+		src/mx_str_dbl_split.c \
 
-OBJ = mx_parting.o \
+OBJ = mx_atoi.o \
+		mx_count_dbl_words.o \
 		mx_create_topnode.o \
-		mx_atoi.o \
-		
+		mx_create_waynode.o \
+		mx_file_to_arr.o \
+		mx_matrix_filling.o \
+		mx_parting.o \
+		mx_push_back_tops.o \
+		mx_push_back_ways.o \
+		mx_str_dbl_split.o \
 
 FLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic
 
