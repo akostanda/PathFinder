@@ -56,7 +56,7 @@ int **matrix_creating(const char *file) {
 	for (int i = 0; i < width; i++) {
 		matrix[i] = (int *)malloc(sizeof(int ) * width);
 		for (int j = 0; j < width; j++) {
-			matrix[i][j] = MAX_INT;
+			matrix[i][j] = -1;
 		}
 	}
 	return matrix;

@@ -21,6 +21,7 @@ typedef struct  s_ways {
 int mx_atoi(const char *str);
 int mx_count_dbl_words(const char *str, char c, char b);
 int **mx_matrix_filling(const char *file);
+int **mx_alltop_ways(const char *file, int index);
 char **mx_file_to_arr(const char *file);
 char **mx_str_dbl_split(const char *str, char c, char b);
 t_tops  *mx_create_topnode(char *str, int i);

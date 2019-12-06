@@ -12,6 +12,7 @@ SRC = src/mx_atoi.c \
 		src/mx_push_back_tops.c \
 		src/mx_push_back_ways.c \
 		src/mx_str_dbl_split.c \
+		src/mx_alltop_ways.c \
 
 OBJ = mx_atoi.o \
 		mx_count_dbl_words.o \
@@ -23,6 +24,7 @@ OBJ = mx_atoi.o \
 		mx_push_back_tops.o \
 		mx_push_back_ways.o \
 		mx_str_dbl_split.o \
+		mx_alltop_ways.o \
 
 FLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic
 
