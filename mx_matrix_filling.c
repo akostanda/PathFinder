@@ -56,7 +56,7 @@ int **matrix_creating(const char *file) {
 	for (int i = 0; i < width; i++) {
 		matrix[i] = (int *)malloc(sizeof(int ) * width);
 		for (int j = 0; j < width; j++) {
-			matrix[i][j] = -1;
+			matrix[i][j] = MAX_INT;
 		}
 	}
 	return matrix;
@@ -71,13 +71,12 @@ int **mx_matrix_filling(const char *file) {
 	
 	for (int i = 0; i < width; i++) {
 		for (int j = 0; j < width; j++) {
-			p = ways;
-			while (p) {
+			for (p = ways; p != NULL; p = p->next) {
 				if (i == p->top1 && j == p->top2) {
 					matrix[i][j] = p->distance;
+					matrix[j][i] = p->distance;
 					break;
-				}
-				p = p->next;
+				}				
 			}
 		}
 	}
