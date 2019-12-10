@@ -14,6 +14,8 @@ int **mx_top_ways(const char *file, int index) {
 				waymatrix[i][j] = matrix[index][j];
 		}
 	}
+	mx_del_intarr(&matrix, width); //
+	mx_del_strarr(&strmatrix); //
 	return waymatrix;
 }
 
@@ -36,6 +38,7 @@ int **mx_min_ways(const char *file, int **minwaymat, int index, int *pivot) {
 		}
 	}
 	minwaymat[2][(*pivot)] = 1;
+	mx_del_strarr(&strmatrix); //
 	return minwaymat;
 }
 
@@ -54,7 +57,12 @@ int **mx_allmin_ways(const char *file, int **minwaymat, int *road_index) {
 				minwaymat[0][j] = matrix[(*road_index)][j] + minwaymat[0][(*road_index)];
 				minwaymat[1][j] = (*road_index);
 			}
+		// 	else if (minwaymat[2][j] != 1 && matrix[(*road_index)][j] != MAX_INT 
+		// 		&& matrix[(*road_index)][j] + minwaymat[0][(*road_index)] == minwaymat[0][j])
+		// 		minwaymat = mx_allmin_ways(file, minwaymat, road_index);
 		}
 	} 
+	mx_del_intarr(&matrix, width); //
+	mx_del_strarr(&strmatrix); //
 	return minwaymat;
 }

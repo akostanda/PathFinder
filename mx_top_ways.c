@@ -14,5 +14,7 @@ int **mx_top_ways(const char *file, int index) {
 				waymatrix[i][j] = matrix[index][j];
 		}
 	}
+	mx_del_intarr(&matrix, width); //
+	mx_del_strarr(&strmatrix); //
 	return waymatrix;
 }

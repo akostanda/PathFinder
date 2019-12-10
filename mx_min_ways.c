@@ -19,5 +19,6 @@ int **mx_min_ways(const char *file, int **minwaymat, int index, int *pivot) {
 		}
 	}
 	minwaymat[2][(*pivot)] = 1;
+	mx_del_strarr(&strmatrix); //
 	return minwaymat;
 }

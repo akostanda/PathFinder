@@ -14,6 +14,6 @@ t_ways  *mx_create_waynode(char **str, t_tops **list) {
 		pl = pl->next;
 	}
 		node->distance = atoi(str[2]);
-	
+	node->next = NULL;
 	return node;	
 }

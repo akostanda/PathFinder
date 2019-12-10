@@ -28,6 +28,7 @@ t_tops *tops_list_creating(const char *file) {
 		}
 		mx_del_strarr(&substr);
 	}
+	mx_del_strarr(&strmatrix); //
 	return islands;
 }
 
@@ -42,6 +43,7 @@ t_ways *ways_list_creating(const char *file) {
 		mx_push_back_ways(&ways, &islands, substr);
 		mx_del_strarr(&substr);
 	}
+	mx_del_strarr(&strmatrix); //
 	return ways;
 }
 
@@ -59,6 +61,7 @@ int **matrix_creating(const char *file) {
 			matrix[i][j] = MAX_INT;
 		}
 	}
+	mx_del_strarr(&strmatrix); //
 	return matrix;
 }
 
@@ -80,6 +83,7 @@ int **mx_matrix_filling(const char *file) {
 			}
 		}
 	}
+	mx_del_strarr(&strmatrix); //
 	return matrix;
 }
 
