@@ -12,5 +12,5 @@ void mx_push_back_tops(t_tops **list, char *str, int i) {
 	while (pl->next != NULL) {
 		pl = pl->next;
 	}
-	pl->next = node;    
+	pl->next = node;
 }

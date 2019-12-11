@@ -1,23 +1,23 @@
 #include "../inc/pathfinder.h"
 
-int **mx_top_ways(const char *file, int index) {
-	int **matrix = mx_matrix_filling(file);
-	int **waymatrix = NULL;
-	char **strmatrix = mx_file_to_arr(file);
-	int width = mx_atoi(strmatrix[0]);
+// int **mx_top_ways(const char *file, int index) {
+// 	int **matrix = mx_matrix_filling(file);
+// 	int **waymatrix = NULL;
+// 	char **strmatrix = mx_file_to_arr(file);
+// 	int width = mx_atoi(strmatrix[0]);
 
-	waymatrix = (int **)malloc(sizeof(int *) * 3);
-	for (int i = 0; i < 3; i++) {
-		waymatrix[i] = (int *)malloc(sizeof(int ) * width);
-		if (i == 0) {
-			for (int j = 0; j < width; j++) 
-				waymatrix[i][j] = matrix[index][j];
-		}
-	}
-	mx_del_intarr(&matrix, width); //
-	mx_del_strarr(&strmatrix); //
-	return waymatrix;
-}
+// 	waymatrix = (int **)malloc(sizeof(int *) * 3);
+// 	for (int i = 0; i < 3; i++) {
+// 		waymatrix[i] = (int *)malloc(sizeof(int ) * width);
+// 		if (i == 0) {
+// 			for (int j = 0; j < width; j++) 
+// 				waymatrix[i][j] = matrix[index][j];
+// 		}
+// 	}
+// 	mx_del_intarr(&matrix, width); //
+// 	mx_del_strarr(&strmatrix); //
+// 	return waymatrix;
+// }
 
 int **mx_min_ways(const char *file, int **minwaymat, int index, int *pivot) {
 	int min_value = MAX_INT;
@@ -44,8 +44,8 @@ int **mx_min_ways(const char *file, int **minwaymat, int index, int *pivot) {
 
 int **mx_allmin_ways(const char *file, int **minwaymat, int *road_index) {
 	int **matrix = mx_matrix_filling(file);
-	//int road_index;
-	//int **minwaymat = min_ways(file, path_index, &road_index);
+	// int road_index;
+	//int **minwaymat = mx_min_ways(file, path_index, &road_index);
 	char **strmatrix = mx_file_to_arr(file);
 	int width = mx_atoi(strmatrix[0]);
 
