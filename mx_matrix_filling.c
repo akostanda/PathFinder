@@ -48,12 +48,9 @@
 // }
 
 int **matrix_creating(const char *file) {
-	char **strmatrix = NULL;
-	int width;
+	int width = mx_matrix_width(file);
 	int **matrix = NULL;
 	
-	strmatrix = mx_file_to_arr(file);
-	width = mx_atoi(strmatrix[0]);
 	matrix = (int **)malloc(sizeof(int *) * width);
 	for (int i = 0; i < width; i++) {
 		matrix[i] = (int *)malloc(sizeof(int ) * width);
@@ -61,7 +58,6 @@ int **matrix_creating(const char *file) {
 			matrix[i][j] = MAX_INT;
 		}
 	}
-	mx_del_strarr(&strmatrix); //
 	return matrix;
 }
 
@@ -78,8 +74,7 @@ int **mx_matrix_filling(const char *file) {
 	int **matrix = matrix_creating(file);
 	t_ways *ways = mx_ways_list_creating(file);
 	t_ways *p = NULL;
-	char **strmatrix = mx_file_to_arr(file);
-	int width = mx_atoi(strmatrix[0]);
+	int width = mx_matrix_width(file);
 	
 	for (int i = 0; i < width; i++) {
 		for (int j = 0; j < width; j++) {
@@ -94,7 +89,6 @@ int **mx_matrix_filling(const char *file) {
 	}
 	while (ways!=NULL)
 	 	pop_front_ways(&ways);
-	mx_del_strarr(&strmatrix); //
 	return matrix;
 }
 
