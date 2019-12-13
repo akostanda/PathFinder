@@ -30,7 +30,7 @@ int **mx_allmin_ways(const char *file, int **minwaymat, int index, int *road_ind
 				minwaymat[0][j] = matrix[(*road_index)][j] + minwaymat[0][(*road_index)];
 				minwaymat[1][j] = (*road_index);
 			}
-			else if (minwaymat[2][j] != 1 && matrix[(*road_index)][j] != MAX_INT 
+			else if (minwaymat[2][j] != 1 && matrix[(*road_index)][j] != MAX_INT
 				&& matrix[(*road_index)][j] + minwaymat[0][(*road_index)] == minwaymat[0][j])
 			{
 				minwaymat = mx_allmin_ways(file, minwaymat, index, road_index);
