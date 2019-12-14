@@ -4,7 +4,7 @@ bool notrepeat(char *str, t_tops **list) {
 	t_tops *p = *list;
 
 	while (p) {
-		if (mx_strcmp(str, p->name) == 0) 
+		if (mx_strcmp(str, p->name) == 0)
 			return false;
 	p = p->next;
 	}
@@ -32,8 +32,8 @@ t_tops *tops_list_creating(const char *file) {
 	return islands;
 }
 
-void pop_front_tops(t_tops **head)  {
-	
+void pop_front_tops(t_tops **head) {
+
 	if (*head != NULL) {
 		t_tops *pl = (*head)->next;
 		free((*head)->name);
@@ -53,10 +53,8 @@ t_ways *mx_ways_list_creating(const char *file) {
 		mx_push_back_ways(&ways, &islands, substr);
 		mx_del_strarr(&substr);
 	}
-	
 	 while (islands!=NULL)
 	 	pop_front_tops(&islands);
-		
 	mx_del_strarr(&strmatrix); //
 	return ways;
 }

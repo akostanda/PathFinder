@@ -6,7 +6,7 @@ bool mx_ways_stopper(const char *file, int **minwaymat) {
 
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < width; j++) {
-			if (minwaymat[2][j] != 1) 
+			if (minwaymat[2][j] != 1)
 				count++;
 		}
 	}

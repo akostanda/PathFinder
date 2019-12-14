@@ -8,7 +8,6 @@ void mx_push_back_tops(t_tops **list, char *str, int i) {
 		*list = node;
 		return;
 	}
-
 	while (pl->next != NULL) {
 		pl = pl->next;
 	}

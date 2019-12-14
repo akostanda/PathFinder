@@ -8,9 +8,8 @@ void mx_push_back_ways(t_ways **list, t_tops ** list2, char **str) {
 		*list = node;
 		return;
 	}
-
 	while (pl->next != NULL) {
 		pl = pl->next;
 	}
-	pl->next = node;    
+	pl->next = node;
 }
