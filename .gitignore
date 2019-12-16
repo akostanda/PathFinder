@@ -1,0 +1,12 @@
+  1 .DS_Store
+  2 ._.DS_Store
+  3 *.o
+  4 *.out
+  5 *.a
+  6 *~
+  7 ~\$*
+  8 *.dms
+  9 *.swp
+ 10 *.swo
+ 11 test
+ 12 main.c
