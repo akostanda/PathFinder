@@ -15,7 +15,7 @@
 // 	return ways;
 // }
 
-int **matrix_creating(const char *file) {
+static int **matrix_creating(const char *file) {
 	int width = mx_matrix_width(file);
 	int **matrix = NULL;
 	
@@ -29,7 +29,7 @@ int **matrix_creating(const char *file) {
 	return matrix;
 }
 
-void pop_front_ways(t_ways **head) {
+static void pop_front_ways(t_ways **head) {
 	if (*head != NULL) {
 		t_ways *pl = (*head)->next;
 		free(*head);
@@ -37,7 +37,7 @@ void pop_front_ways(t_ways **head) {
 	}
 }
 
-int **matrix_filling_cycle(const char *file, int **matrix) {
+static int **matrix_filling_cycle(const char *file, int **matrix) {
 	t_ways *ways = mx_ways_list_creating(file);
 	t_ways *p = NULL;
 	int width = mx_matrix_width(file);

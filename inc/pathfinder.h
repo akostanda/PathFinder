@@ -39,7 +39,7 @@ t_minways  *mx_create_minwaynode(const char *file, int **minwaymat);
 t_tops  *mx_create_topnode(char *str, int i);
 t_ways  *mx_create_waynode(char **str, t_tops **list);
 void mx_del_intarr(int ***arr, int size);
-void mx_push_back_minways(const char *file, t_minways **list, int **minwaymat);
+void mx_push_back_minways(const char *file, t_minways **list, int **minwaym);
 void mx_push_back_tops(t_tops **list, char *str, int i);
 void mx_push_back_ways(t_ways **list, t_tops ** list2, char **str);
 

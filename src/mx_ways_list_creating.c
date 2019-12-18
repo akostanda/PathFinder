@@ -1,6 +1,6 @@
 #include "../inc/pathfinder.h"
 
-bool notrepeat(char *str, t_tops **list) {
+static bool notrepeat(char *str, t_tops **list) {
 	t_tops *p = *list;
 
 	while (p) {
@@ -11,7 +11,7 @@ bool notrepeat(char *str, t_tops **list) {
 	return true;
 }
 
-t_tops *tops_list_creating(const char *file) {
+static t_tops *tops_list_creating(const char *file) {
 	t_tops *islands = NULL;
 	char **strmatrix = NULL;
 	char **substr = NULL;
@@ -32,7 +32,7 @@ t_tops *tops_list_creating(const char *file) {
 	return islands;
 }
 
-void pop_front_tops(t_tops **head) {
+static void pop_front_tops(t_tops **head) {
 	t_tops *pl = NULL;
 
 	if (*head != NULL) {

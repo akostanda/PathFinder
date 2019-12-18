@@ -40,7 +40,7 @@
 // 	return minwaymat;
 // }
 
-int **copy_matrix(const char *file, int **matrix) {
+static int **copy_matrix(const char *file, int **matrix) {
 	int **newm = NULL;
 	int width = mx_matrix_width(file);
 
