@@ -18,19 +18,28 @@ typedef struct  s_ways {
     struct s_ways *next;
 } t_ways;
 
+typedef struct  s_minways {
+	int **minwaymat;
+    struct s_minways *next;
+} t_minways;
+
 bool mx_ways_stopper(const char *file, int **minwaymat);
-int **mx_allmin_ways(const char *file, int **minwaymat, int index, int *road_index);
+// int **mx_allmin_ways(const char *file, int **minwaymat, int index, int *road_index);
 int mx_atoi(const char *str);
 int mx_count_dbl_words(const char *str, char c, char b);
 int **mx_matrix_filling(const char *file);
 int mx_matrix_width(const char *file);
-int **mx_min_ways(const char *file, int **minwaymat, int index, int *pivot);
+void mx_min_ways(const char *file, int **minwaymat, int index, int *pivot);
+void mx_allmin_ways(const char *file, int **minwaymat, int index, int *road_index, t_minways **list);
 int **mx_top_ways(const char *file, int index);
 char **mx_file_to_arr(const char *file);
 char **mx_str_dbl_split(const char *s, char c, char b);
+// t_minways *mx_allmin_ways(const char *file, int **minwaymat, int index, int *road_index);
+t_minways  *mx_create_minwaynode(const char *file, int **minwaymat);
 t_tops  *mx_create_topnode(char *str, int i);
 t_ways  *mx_create_waynode(char **str, t_tops **list);
 void mx_del_intarr(int ***arr, int size);
+void mx_push_back_minways(const char *file, t_minways **list, int **minwaymat);
 void mx_push_back_tops(t_tops **list, char *str, int i);
 void mx_push_back_ways(t_ways **list, t_tops ** list2, char **str);
 

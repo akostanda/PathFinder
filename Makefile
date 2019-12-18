@@ -4,6 +4,7 @@ LIB = ./libmx/libmx.a \
 
 SRC = src/mx_allmin_ways.c \
 		src/mx_atoi.c \
+		src/mx_create_minwaynode.c \
 		src/mx_count_dbl_words.c \
 		src/mx_create_topnode.c \
 		src/mx_create_waynode.c \
@@ -12,6 +13,7 @@ SRC = src/mx_allmin_ways.c \
 		src/mx_matrix_filling.c \
 		src/mx_matrix_width.c \
 		src/mx_min_ways.c \
+		src/mx_push_back_minways.c \
 		src/mx_push_back_tops.c \
 		src/mx_push_back_ways.c \
 		src/mx_str_dbl_split.c \
@@ -19,8 +21,10 @@ SRC = src/mx_allmin_ways.c \
 		src/mx_ways_list_creating.c \
 		src/mx_ways_stopper.c \
 
+
 OBJ = mx_allmin_ways.o \
 		mx_atoi.o \
+		mx_create_minwaynode.o \
 		mx_count_dbl_words.o \
 		mx_create_topnode.o \
 		mx_create_waynode.o \
@@ -29,12 +33,14 @@ OBJ = mx_allmin_ways.o \
 		mx_matrix_filling.o \
 		mx_matrix_width.o \
 		mx_min_ways.o \
+		mx_push_back_minways.o \
 		mx_push_back_tops.o \
 		mx_push_back_ways.o \
 		mx_str_dbl_split.o \
 		mx_top_ways.o \
 		mx_ways_list_creating.o \
 		mx_ways_stopper.o \
+		
 
 FLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic
 

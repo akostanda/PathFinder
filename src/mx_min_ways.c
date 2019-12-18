@@ -1,6 +1,6 @@
 #include "../inc/pathfinder.h"
 
-int **mx_min_ways(const char *file, int **minwaymat, int index, int *pivot) {
+void mx_min_ways(const char *file, int **minwaymat, int index, int *pivot) {
 	int min_value = MAX_INT;
 	int width = mx_matrix_width(file);
 
@@ -18,5 +18,5 @@ int **mx_min_ways(const char *file, int **minwaymat, int index, int *pivot) {
 		}
 	}
 	minwaymat[2][(*pivot)] = 1;
-	return minwaymat;
+	// return minwaymat;
 }
