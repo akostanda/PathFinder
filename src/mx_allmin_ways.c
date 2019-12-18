@@ -40,13 +40,13 @@
 // 	return minwaymat;
 // }
 
-static int **copy_matrix(const char *file, int **matrix) {
-	int **newm = NULL;
+static unsigned long **copy_matrix(const char *file, unsigned long **matrix) {
+	unsigned long **newm = NULL;
 	int width = mx_matrix_width(file);
 
-	newm = (int **)malloc(sizeof(int *) * 3);
+	newm = (unsigned long **)malloc(sizeof(unsigned long *) * 3);
 	for (int i = 0; i < 3; i++) {
-		newm[i] = (int *)malloc(sizeof(int ) * width);
+		newm[i] = (unsigned long *)malloc(sizeof(unsigned long ) * width);
 		for (int j = 0; j < width; j++) {
 			newm[i][j] = matrix[i][j];
 		}
@@ -54,17 +54,15 @@ static int **copy_matrix(const char *file, int **matrix) {
 	return newm;
 }
 
-void mx_allmin_ways(const char *file, int **minwaymat, int index, int *road_index, t_minways **list) {
+void mx_allmin_ways(const char *file, unsigned long **minwaymat, int index, int *road_index, t_minways **list) {
 	int **matrix = mx_matrix_filling(file);
 	int width = mx_matrix_width(file);
-	int **copy = NULL;
+	unsigned long **copy = NULL;
 
 	while (!(mx_ways_stopper(file, minwaymat))) {
 		mx_min_ways(file, minwaymat, index, road_index);
 		for (int i = 0; i < width; i++) {
-			if (minwaymat[2][i] != 1 && matrix[(*road_index)][i] != MAX_INT
-				&& matrix[(*road_index)][i] + minwaymat[0][(*road_index)] > 0) 
-			{
+			if (minwaymat[2][i] != 1 && matrix[(*road_index)][i] != MAX_INT) {
 				if (matrix[(*road_index)][i] + minwaymat[0][(*road_index)] < minwaymat[0][i]) {	
 					minwaymat[0][i] = matrix[(*road_index)][i] + minwaymat[0][(*road_index)];
 					minwaymat[1][i] = (*road_index);
@@ -73,11 +71,12 @@ void mx_allmin_ways(const char *file, int **minwaymat, int index, int *road_inde
 					copy = copy_matrix(file, minwaymat);
 					copy[1][i] = (*road_index);
 					mx_allmin_ways(file, copy, index, road_index, list);
-					mx_del_intarr(&copy, 3);
+					mx_del_luarr(&copy, 3);
 				}
 			}
 		}
 	}
+	mx_minways_filter(file, list, minwaymat);
 	mx_push_back_minways(file, list, minwaymat);
 	mx_del_intarr(&matrix, width);
 }

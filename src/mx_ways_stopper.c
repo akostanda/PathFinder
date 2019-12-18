@@ -1,6 +1,6 @@
 #include "../inc/pathfinder.h"
 
-bool mx_ways_stopper(const char *file, int **minwaymat) {
+bool mx_ways_stopper(const char *file, unsigned long **minwaymat) {
 	int width = mx_matrix_width(file);
 	int count = 0;
 
