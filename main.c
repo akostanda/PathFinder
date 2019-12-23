@@ -16,81 +16,89 @@ void pop_front_minways(t_minways **head) {
 		*head = pl;
 	}
 }
+// void del_luararr(unsigned long ****arr, int size) {
+// 	unsigned long ***parr = &(**arr);
+
+// 	for (int i = 0; i < size; i++) {
+// 		for (int j = 0; j < 3; j++) {
+// 			free(parr[i][j]);
+// 		}
+// 	}
+// 	free(**arr);
+// 	**arr = NULL;
+// }
 
 int main() {
-	int pivot;
-	  int index = 0;
-	  unsigned long **waymatrix = NULL;
-	 // int **minwaymat = NULL;
-	char **strmatrix = NULL;
-	       strmatrix = mx_file_to_arr("initial_data.txt");
-	t_minways *matrix = NULL;
-	t_minways *p= NULL;
+	int size = 0;
+	int index = 0;
+	// t_ints *n = mx_create_intnode();
 
+	 unsigned long **waymatrix = NULL;
+	 
+	 int width = mx_matrix_width("initial_data.txt");
+	//  // int **minwaymat = NULL;
+	// char **strmatrix = NULL;
+	//        strmatrix = mx_file_to_arr("initial_data.txt");
+	// t_minways *matrix = NULL;
+	// t_minways *p= NULL;
+// system("leaks -q a.out");
 
-	 for (index = 0; index < 5; index++) {
-	  	waymatrix = mx_top_ways("initial_data.txt", index);
-	 	// minwaymat = mx_min_ways("initial_data.txt", waymatrix, index, &pivot);
-		 // for (int i = 0; i < 5; i++){
-			mx_allmin_ways("initial_data.txt", waymatrix, index, &pivot, &matrix);
-			// system("leaks -q a.out");
-			// minwaymat = mx_min_ways("initial_data.txt", matrix, index, &pivot);
-			// node = mx_create_minwaynode("initial_data.txt", matrix);
-			// // system("leaks -q a.out");
-			// pop_front_minways(&node);
-			// system("leaks -q a.out");
-			// mx_del_intarr(&matrix, 3);
-		 // }
-mx_del_luarr(&waymatrix, 3);
-	}
-
-	// printf("%d\n\n", pivot);	
-		 p = matrix;
-		while (p) {
-		for (int i = 0; i < 2; i++) {
-			for (int j = 0; j < 5; j++) {
-				if (p->minwaymat[i][j] >= 0 && p->minwaymat[i][j] < 10)
-					printf(" %lu  ", p->minwaymat[i][j]);
-
+	waymatrix = mx_nonrepeating_matrix("initial_data.txt", index, &size);
+	
+// printf("%d\n", size);
+	// for (int i = 0; i < size; i++) {
+		// printf("error1\n");
+		for (int j = 0; j < 3; j++) {
+			// printf("error2\n");
+			for (int k = 0; k < size * width; k++){
+				// printf("error3 ");
+				if (waymatrix[j][k] >= 0 && waymatrix[j][k] < 10)
+					printf(" %lu ", waymatrix[j][k]);
 				else
-					printf("%lu  ", p->minwaymat[i][j]);
+					printf("%lu ", waymatrix[j][k]);
 			}
 			printf("\n");
 		}
+		// mx_del_luarr(&waymatrix, 3);
 		printf("\n\n\n");
-	 	 //
-	 	 // mx_del_intarr(&matrix, 3);
-	 	p = p->next;
-	 	}
+	// }
+	// printf("%d\n", size);
+	// mx_del_luarr(&waymatrix, size);
+	// matrix = mx_allminways_list_creating("initial_data.txt");
+	// 	p = matrix;
+	// 	while (p) {
+	// 	for (int i = 0; i < 2; i++) {
+	// 		for (int j = 0; j < 5; j++) {
+	// 			if (p->minwaymat[i][j] >= 0 && p->minwaymat[i][j] < 10)
+	// 				printf(" %lu  ", p->minwaymat[i][j]);
+
+	// 			else
+	// 				printf("%lu  ", p->minwaymat[i][j]);
+	// 		}
+	// 		printf("\n");
+	// 	}
+	// 	printf("\n\n\n");
+	//  	 //
+	//  	 // mx_del_intarr(&matrix, 3);
+	//  	p = p->next;
+	//  	}
 	
 	// pop_front_minways(&matrix);
+
+// 		 	unsigned long **matrix = NULL;
+// 	int width = mx_matrix_width("initial_data.txt");
+
+// 	matrix = (unsigned long **)malloc(sizeof(unsigned long *) * 2);
+// 	for (int i = 0; i < 2; i++) {
+// 		matrix[i] = (unsigned long *)malloc(sizeof(unsigned long) * width);
+// 		}
+// mx_matrix_parsing("initial_data.txt", matrix);
 	// pop_front_minways(&p);
+// mx_del_luarr(&matrix, 2);
 
 	//mx_del_intarr(&matrix, 4); //
 	//mx_del_strarr(&strmatrix);
 
-
-
-
-	// t_tops *x = NULL;
-	
-	// int **y = NULL;
-	// y = mx_matrix_filling("initial_data.txt");
-
-	// char str[] = "FFGGHGT";
-	// x = mx_create_topnode(str, 1);
-	// mx_push_back_tops(&x, str, 1);
-
-	// int i = 1;
-	// mx_push_back_tops(&x, str, i);
-	// printf("%s\n", x->name);
-	// while (test) {
-
-	// 	printf("%d->%d - ", test->top1, test->top2);
-	// 	printf("%i\n", test->distance);
-	// 	test=test->next;
-	// }
-	// printf("%i\n", MAX_INT);
-		system("leaks -q a.out");
+	system("leaks -q a.out");
 return 0;
 }

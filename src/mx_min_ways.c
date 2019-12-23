@@ -18,5 +18,4 @@ void mx_min_ways(const char *file, unsigned long **minwaymat, int index, int *pi
 		}
 	}
 	minwaymat[2][(*pivot)] = 1;
-	// return minwaymat;
 }

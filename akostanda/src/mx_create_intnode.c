@@ -7,11 +7,6 @@ t_ints  *mx_create_intnode() {
 		return NULL;
 	node->index = 0;
 	node->pivot = 0;
-	node->y = 0;
-	node->x = 0;
-	node->i = 0;
-	node->j = 0;
-	node->k = 0;
 	
 
 	return node;	

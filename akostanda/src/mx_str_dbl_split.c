@@ -1,6 +1,6 @@
 #include "../inc/pathfinder.h"
 
-char **splitcycle(const char *s, char **ns, char c, char b) {
+static char **splitcycle(const char *s, char **ns, char c, char b) {
 	int i = 0;
 	int k = 0;
 	int start;
