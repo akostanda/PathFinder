@@ -54,9 +54,10 @@ void mx_allmin_ways(const char *file, unsigned long **minwaymat, t_ints *n, t_mi
 void mx_del_intarr(int ***arr, int size);
 void mx_del_luararr(unsigned long ****arr, int size);
 void mx_del_luarr(unsigned long ***arr, int size);
-void mx_matrix_parsing(const char *file, unsigned long **matrix);
+// void mx_matrix_parsing(const char *file, unsigned long **matrix);
 void mx_minways_filter(const char *file, t_minways **list, unsigned long **minwaymat);
 void mx_min_ways(const char *file, unsigned long **minwaymat, int index, int *pivot);
+void mx_matrix_parsing(const char *file, int island_index, int *size);
 void mx_push_back_minways(const char *file, t_minways **list, unsigned long **minwaym);
 void mx_push_back_tops(t_tops **list, char *str, int i);
 void mx_push_back_ways(t_ways **list, t_tops ** list2, char **str);

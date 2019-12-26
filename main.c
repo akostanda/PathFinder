@@ -61,6 +61,8 @@ int main() {
 		}
 		// mx_del_luarr(&waymatrix, 3);
 		printf("\n\n\n");
+	size = 0;	
+		mx_matrix_parsing("initial_data.txt", index, &size);
 	// }
 	// printf("%d\n", size);
 	// mx_del_luarr(&waymatrix, size);

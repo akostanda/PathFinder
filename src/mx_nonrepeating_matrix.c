@@ -35,12 +35,12 @@ unsigned long **nonrepeating_matrix_filling(const char *file, int island_index, 
 
 	for (; n->x < width; n->x++) {
 		for (n->y = 0; n->y < (*size); n->y++) {
-			if (n->y == 0 && n->x >= island_index) {
+			if (n->y == 0) { // && n->x >= island_index) {
 				for (n->i = 0; n->i < 3; n->i++)
 					norepmat[n->i][n->k] = allmatrix[n->y][n->i][n->x];
 				n->k++;
 			}
-			else if (n->y > 0 && n->x >= island_index)
+			else if (n->y > 0)// && n->x >= island_index)
 				nonrepeating_condition(norepmat, allmatrix, n, &n->k);
 		}
 	}
