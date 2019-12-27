@@ -4,6 +4,7 @@
 #include "../libmx/inc/libmx.h"
 
 #define MAX_INT 2147483647
+#define MAX_LU 4294967295
 
 typedef struct  s_tops {
 	int index;
@@ -31,6 +32,8 @@ typedef struct  s_ints {
     int i;
     int j;
     int k;
+    int new_matrix_index;
+    int island_index;
 } t_ints;
 
 bool mx_ways_stopper(const char *file, unsigned long **minwaymat);
@@ -54,13 +57,13 @@ void mx_allmin_ways(const char *file, unsigned long **minwaymat, t_ints *n, t_mi
 void mx_del_intarr(int ***arr, int size);
 void mx_del_luararr(unsigned long ****arr, int size);
 void mx_del_luarr(unsigned long ***arr, int size);
-// void mx_matrix_parsing(const char *file, unsigned long **matrix);
+void mx_luarr_reverse(unsigned long *arr, int start, int size);
 void mx_minways_filter(const char *file, t_minways **list, unsigned long **minwaymat);
 void mx_min_ways(const char *file, unsigned long **minwaymat, int index, int *pivot);
 void mx_matrix_parsing(const char *file, int island_index, int *size);
 void mx_push_back_minways(const char *file, t_minways **list, unsigned long **minwaym);
 void mx_push_back_tops(t_tops **list, char *str, int i);
 void mx_push_back_ways(t_ways **list, t_tops ** list2, char **str);
-
+void mx_swap_lu(unsigned long *i1, unsigned long *i2);
 
 #endif

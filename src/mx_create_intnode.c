@@ -12,7 +12,7 @@ t_ints  *mx_create_intnode() {
 	node->i = 0;
 	node->j = 0;
 	node->k = 0;
-	
-
+	node->island_index = 0;
+	node->new_matrix_index = 0;
 	return node;	
 }

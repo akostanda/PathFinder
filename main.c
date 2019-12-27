@@ -100,7 +100,7 @@ int main() {
 
 	//mx_del_intarr(&matrix, 4); //
 	//mx_del_strarr(&strmatrix);
-
+		
 	system("leaks -q a.out");
 return 0;
 }

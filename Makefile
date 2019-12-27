@@ -15,6 +15,7 @@ SRC = src/mx_allmin_ways.c \
 		src/mx_del_luararr.c \
 		src/mx_del_luarr.c \
 		src/mx_file_to_arr.c \
+		src/mx_intarr_reverse.c \
 		src/mx_matrix_filling.c \
 		src/mx_matrix_parsing.c \
 		src/mx_matrix_width.c \
@@ -25,6 +26,7 @@ SRC = src/mx_allmin_ways.c \
 		src/mx_push_back_tops.c \
 		src/mx_push_back_ways.c \
 		src/mx_str_dbl_split.c \
+		src/mx_swap_int.c \
 		src/mx_tops_list_creating.c \
 		src/mx_top_ways.c \
 		src/mx_ways_list_creating.c \
@@ -44,6 +46,7 @@ OBJ = mx_allmin_ways.o \
 		mx_del_luararr.o \
 		mx_del_luarr.o \
 		mx_file_to_arr.o \
+		mx_intarr_reverse.o \
 		mx_matrix_filling.o \
 		mx_matrix_parsing.o \
 		mx_matrix_width.o \
@@ -54,6 +57,7 @@ OBJ = mx_allmin_ways.o \
 		mx_push_back_tops.o \
 		mx_push_back_ways.o \
 		mx_str_dbl_split.o \
+		mx_swap_int.o \
 		mx_tops_list_creating.o \
 		mx_top_ways.o \
 		mx_ways_list_creating.o \
