@@ -13,7 +13,7 @@ static void pop_front_tminways(t_minways **head) {
 	}
 }
 
-unsigned long ***allmat_creation(const char *file, int island_index, int *size) {
+static unsigned long ***allmat_creation(const char *file, int island_index, int *size) {
 	t_minways *list = mx_allminways_list_creating(file);
 	int width = mx_matrix_width(file);
 	unsigned long ***allmatrix = NULL;

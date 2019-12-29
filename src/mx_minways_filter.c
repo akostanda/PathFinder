@@ -1,6 +1,6 @@
 #include "../inc/pathfinder.h"
 
-void minways_filter_ (const char *file, t_minways **list, unsigned long **minwaymat) {
+static void minways_filter_ (const char *file, t_minways **list, unsigned long **minwaymat) {
 	t_minways *pl = *list;
 	int width = mx_matrix_width(file);
 	int count = 0;

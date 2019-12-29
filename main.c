@@ -29,12 +29,12 @@ void pop_front_minways(t_minways **head) {
 // }
 
 int main() {
-	int size = 0;
-	int index = 0;
+	
+	
 	// t_ints *n = mx_create_intnode();
 
 	 unsigned long **waymatrix = NULL;
-	 
+	 // int index = 0;
 	 int width = mx_matrix_width("initial_data.txt");
 	//  // int **minwaymat = NULL;
 	// char **strmatrix = NULL;
@@ -42,8 +42,10 @@ int main() {
 	// t_minways *matrix = NULL;
 	// t_minways *p= NULL;
 // system("leaks -q a.out");
-
+ for (int index = 0; index < width - 1; index++) {
+	int size = 0;
 	waymatrix = mx_nonrepeating_matrix("initial_data.txt", index, &size);
+
 	
 // printf("%d\n", size);
 	// for (int i = 0; i < size; i++) {
@@ -60,12 +62,14 @@ int main() {
 			printf("\n");
 		}
 		// mx_del_luarr(&waymatrix, 3);
-		printf("\n\n\n");
-	size = 0;	
+		printf("\n\n");	
+		size = 0;
 		mx_matrix_parsing("initial_data.txt", index, &size);
-	// }
+		printf("\n\n\n");
+		mx_del_luarr(&waymatrix, 3);
+	}
 	// printf("%d\n", size);
-	// mx_del_luarr(&waymatrix, size);
+	
 	// matrix = mx_allminways_list_creating("initial_data.txt");
 	// 	p = matrix;
 	// 	while (p) {

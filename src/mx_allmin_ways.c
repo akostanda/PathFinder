@@ -14,7 +14,7 @@ static unsigned long **copy_matrix(const char *file, unsigned long **matrix) {
 	return newm;
 }
 
-void allmin_ways_cycle(const char *file, unsigned long **minwaymat, t_ints *n, t_minways **list) {
+static void allmin_ways_cycle(const char *file, unsigned long **minwaymat, t_ints *n, t_minways **list) {
 	int **matrix = mx_matrix_filling(file);
 	int width = mx_matrix_width(file);
 	unsigned long **copy = NULL;
