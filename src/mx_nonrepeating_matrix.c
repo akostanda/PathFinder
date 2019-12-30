@@ -64,8 +64,8 @@ unsigned long **mx_nonrepeating_matrix(const char *file, int island_index, int *
             for (int j = 0; j < (*size) * width; j++){
                 if (norepmat[0][j] == MAX_INT)
                     break;
-                else if (norepmat[2][j] == norepmat[2][j+1] && ((norepmat[1][j] > norepmat[1][j + 1])
-                    || ((int)norepmat[1][j] != island_index && (int)norepmat[1][j + 1] == island_index))) {
+                else if (norepmat[2][j] == norepmat[2][j+1] && norepmat[1][j] > norepmat[1][j + 1]) {
+                    // || ((int)norepmat[1][j] != island_index && (int)norepmat[1][j + 1] == island_index))) {
                     buf = norepmat[1][j];
                     norepmat[1][j] = norepmat[1][j + 1];
                     norepmat[1][j + 1] = buf;

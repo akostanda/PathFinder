@@ -47,9 +47,12 @@ typedef struct  s_pointers {
 
 bool mx_ways_stopper(const char *file, unsigned long **minwaymat);
 char **mx_file_to_arr(const char *file);
+char *mx_islands_name(const char *file, char **island_name, int index);
 char **mx_str_dbl_split(const char *s, char c, char b);
+int mx_arrlen(unsigned long *arr);
 int mx_atoi(const char *str);
 int mx_count_dbl_words(const char *str, char c, char b);
+int mx_last_arr_el(unsigned long *arr);
 int **mx_matrix_filling(const char *file);
 int mx_matrix_width(const char *file);
 t_ints  *mx_create_intnode();
@@ -70,12 +73,13 @@ void mx_del_luararr(unsigned long ****arr, int size);
 void mx_del_luarr(unsigned long ***arr, int size);
 void mx_luarr_reverse(unsigned long *arr, int start, int size);
 void mx_matrix_parsing(const char *file, int island_index, int *size);
-void mx_minways_filter(const char *file, t_minways **list, unsigned long **minwaymat);
 void mx_min_ways(const char *file, unsigned long **minwaymat, int index, int *pivot);
 void mx_pop_front_tops(t_tops **head);
+void mx_pop_poinnode(t_pointers **point);
 void mx_push_back_minways(const char *file, t_minways **list, unsigned long **minwaym);
 void mx_push_back_tops(t_tops **list, char *str, int i);
 void mx_push_back_ways(t_ways **list, t_tops ** list2, char **str);
+void mx_push_filter(const char *file, t_minways **list, unsigned long **minwaymat);
 void mx_swap_lu(unsigned long *i1, unsigned long *i2);
 
 #endif

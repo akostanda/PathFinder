@@ -18,7 +18,7 @@ static void allmin_ways_cycle(const char *file, unsigned long **minwaymat, t_int
 	int **matrix = mx_matrix_filling(file);
 	int width = mx_matrix_width(file);
 	unsigned long **copy = NULL;
-	
+
 	for (int i = 0; i < width; i++) {
 		if (minwaymat[2][i] != 1 && matrix[(n->pivot)][i] != MAX_INT) {
 			if (matrix[(n->pivot)][i] + minwaymat[0][(n->pivot)] < minwaymat[0][i]) {	
@@ -42,5 +42,5 @@ void mx_allmin_ways(const char *file, unsigned long **minwaymat, t_ints *n, t_mi
 		mx_min_ways(file, minwaymat, n->index, &n->pivot);
 		allmin_ways_cycle(file, minwaymat, n, list);
 	}
-	mx_minways_filter(file, list, minwaymat);
+	mx_push_filter(file, list, minwaymat);
 }
