@@ -71,6 +71,7 @@ void mx_del_intarr(int ***arr, int size);
 void mx_del_lu(unsigned long **arr);
 void mx_del_luararr(unsigned long ****arr, int size);
 void mx_del_luarr(unsigned long ***arr, int size);
+void mx_islands_way_length(unsigned long **matrix, unsigned long first_island, unsigned long second_island);
 void mx_luarr_reverse(unsigned long *arr, int start, int size);
 void mx_matrix_parsing(const char *file, int island_index, int *size);
 void mx_min_ways(const char *file, unsigned long **minwaymat, int index, int *pivot);

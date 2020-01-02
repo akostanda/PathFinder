@@ -2,72 +2,16 @@
 
 static void pathprint(const char *file, unsigned long *i_way_arr) {
     char *island_name = NULL;
-    int i = 0;
     int last_i = mx_last_arr_el(i_way_arr);
 
     mx_printstr("========================================\nPath: ");
-    mx_printstr(mx_islands_name(file, &island_name, i_way_arr[i]));
+    mx_printstr(mx_islands_name(file, &island_name, i_way_arr[0]));
     mx_printstr(" -> ");
     mx_printstr(mx_islands_name(file, &island_name, i_way_arr[last_i - 1]));
     mx_printstr("\nRoute: ");
-    mx_printstr(mx_islands_name(file, &island_name, i_way_arr[i]));
-    mx_strdel(&island_name);
-}
-
-static void islands_way_length(unsigned long **matrix,
-                                    int first_island, int second_island) {
-    int i = 0;
-    int length;
-    int buf_1 = 0;
-    int buf_2 = 0;
-
-    for (; matrix[2][i] != MAX_INT && matrix[2][i] != MAX_LU; i++) {
-        if(first_island == (int)matrix[2][i])
-            buf_1 = (int)matrix[0][i];
-        if(second_island == (int)matrix[2][i]) {
-            buf_2 = (int)matrix[0][i];
-            break;
-        }
-    }
-    length = buf_2 - buf_1;
-    mx_printint(length);
-}
-
-static void destinationprint(unsigned long *i_way_arr, unsigned long **matrix) {
-    // int first_island;
-    // int second_island;
-
-    int last_i = mx_last_arr_el(i_way_arr);
-
-    mx_printstr("\nDistance: ");
+    mx_printstr(mx_islands_name(file, &island_name, i_way_arr[0]));
     if (last_i > 2) {
-        for (int i = 0; matrix[2][i] != MAX_INT && matrix[2][i] != MAX_LU; i++) {
-            if(i_way_arr[i] == matrix[2][i]) {
-                mx_printstr(" + ");
-                islands_way_length(matrix, matrix[1][i], matrix[2][i]);
-                // mx_printint(matrix[0][i] - matrix[0][i]);
-            }
-        }
-    }
-    else{
-        for (i = 1; matrix[2][i] != MAX_INT && matrix[2][i] != MAX_LU; i++) {
-            if(i_way_arr[last_i - 1] == matrix[2][i]) {
-                mx_printint(matrix[0][i]);
-                break;
-            }
-        }  
-    }
-    mx_printstr("\n========================================\n");
-}
-
-static void routeprint(const char *file, unsigned long *i_way_arr, unsigned long **matrix) {
-    char *island_name = NULL;
-    int i = 0;
-    int last_i = mx_last_arr_el(i_way_arr);
-
-    pathprint(file, i_way_arr);
-    if (last_i > 2) {
-        for (i = 1; i < last_i; i++) {
+        for (int i = 1; i < last_i; i++) {
             mx_printstr(" -> ");
             mx_printstr(mx_islands_name(file, &island_name, i_way_arr[i]));          
         }
@@ -76,9 +20,47 @@ static void routeprint(const char *file, unsigned long *i_way_arr, unsigned long
         mx_printstr(" -> ");
         mx_printstr(mx_islands_name(file, &island_name, i_way_arr[last_i - 1])); 
     }
-    destinationprint(i_way_arr, matrix);
-    mx_printstr("\n");
     mx_strdel(&island_name);
+}
+
+static void destinationprint(unsigned long *i_way_arr, unsigned long **matrix) {
+    int last_i = mx_last_arr_el(i_way_arr);
+
+    mx_printstr("\nDistance: ");
+    for (int i = 0; matrix[2][i] != MAX_INT && matrix[2][i] != MAX_LU; i++) {
+        if(i_way_arr[1] == matrix[2][i]) {
+            mx_printint(matrix[0][i]);
+            break;
+        }
+    }
+    if (last_i > 2) {
+        int p = 2;
+        for (; i_way_arr[p] != MAX_LU; p++) {
+            for (int j = 0; matrix[2][j] != MAX_INT && matrix[2][j] != MAX_LU; j++) {
+                if(i_way_arr[p] == matrix[2][j] && i_way_arr[p - 1] == matrix[1][j]) {
+                    mx_printstr(" + ");
+                    mx_islands_way_length(matrix, matrix[1][j], matrix[2][j]);
+                }
+            }
+        }
+    }
+}
+
+static void routeprint(const char *file, unsigned long *i_way_arr, unsigned long **matrix) {
+    int last_i = mx_last_arr_el(i_way_arr);
+
+    pathprint(file, i_way_arr);
+    destinationprint(i_way_arr, matrix);
+    if (last_i > 2) {
+            mx_printstr(" = ");
+        for (int k = 0; matrix[2][k] != MAX_INT && matrix[2][k] != MAX_LU; k++) {
+            if(i_way_arr[last_i - 1] == matrix[2][k]) {
+                mx_printint(matrix[0][k]);
+                break;
+            }
+        }
+    }
+    mx_printstr("\n========================================\n");
 }
 
 
@@ -96,10 +78,10 @@ static void allwaysprint(t_pointers *point, int new_island_index, int island_des
         for (count = 0; point->link->i_way_arr[count] != MAX_INT && count < width; count++);
         count > 2 ? mx_luarr_reverse(point->link->i_way_arr, 1, count) : ((void) 0);
         routeprint(point->file, point->link->i_way_arr, point->link->matrix);
-        printf("\n");
-        for (int k = 0; (k < width && point->link->matrix[0][k] != MAX_INT); k++)
-            printf("%lu ", point->link->i_way_arr[k]);
-        printf("\n\n");
+        // printf("\n");
+        // for (int k = 0; (k < width && point->link->matrix[0][k] != MAX_INT); k++)
+        //     printf("%lu ", point->link->i_way_arr[k]);
+        // printf("\n\n");
     }
     else {
         while (point->link->matrix[2][new_destination] != MAX_INT && point->link->matrix[2][new_destination] != MAX_LU) {
