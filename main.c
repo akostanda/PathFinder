@@ -33,14 +33,14 @@ int main() {
 	
 	// t_ints *n = mx_create_intnode();
 
-	 unsigned long **waymatrix = NULL;
+	 unsigned int **waymatrix = NULL;
 	 // int index = 0;
 	 int width = mx_matrix_width("initial_data.txt");
 	//  // int **minwaymat = NULL;
 	// char **strmatrix = NULL;
 	//        strmatrix = mx_file_to_arr("initial_data.txt");
-	// t_minways *matrix = NULL;
-	// t_minways *p= NULL;
+	t_minways *matrix = NULL;
+	t_minways *p= NULL;
 // system("leaks -q a.out");
  for (int index = 0; index < width - 1; index++) {
 	int size = 0;
@@ -55,9 +55,9 @@ int main() {
 			for (int k = 0; k < size * width; k++){
 				// printf("error3 ");
 				if (waymatrix[j][k] >= 0 && waymatrix[j][k] < 10)
-					printf(" %lu ", waymatrix[j][k]);
+					printf(" %u ", waymatrix[j][k]);
 				else
-					printf("%lu ", waymatrix[j][k]);
+					printf("%u ", waymatrix[j][k]);
 			}
 			printf("\n");
 		}
@@ -66,28 +66,28 @@ int main() {
 		size = 0;
 		mx_matrix_parsing("initial_data.txt", index, &size);
 		printf("\n\n\n");
-		mx_del_luarr(&waymatrix, 3);
+		mx_del_uarr(&waymatrix, 3);
 	}
 	// printf("%d\n", size);
 	
-	// matrix = mx_allminways_list_creating("initial_data.txt");
-	// 	p = matrix;
-	// 	while (p) {
-	// 	for (int i = 0; i < 2; i++) {
-	// 		for (int j = 0; j < 5; j++) {
-	// 			if (p->minwaymat[i][j] >= 0 && p->minwaymat[i][j] < 10)
-	// 				printf(" %lu  ", p->minwaymat[i][j]);
+	matrix = mx_allminways_list_creating("initial_data.txt");
+		p = matrix;
+		while (p) {
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (p->minwaymat[i][j] >= 0 && p->minwaymat[i][j] < 10)
+					printf(" %u  ", p->minwaymat[i][j]);
 
-	// 			else
-	// 				printf("%lu  ", p->minwaymat[i][j]);
-	// 		}
-	// 		printf("\n");
-	// 	}
-	// 	printf("\n\n\n");
-	//  	 //
-	//  	 // mx_del_intarr(&matrix, 3);
-	//  	p = p->next;
-	//  	}
+				else
+					printf("%u  ", p->minwaymat[i][j]);
+			}
+			printf("\n");
+		}
+		printf("\n\n\n");
+	 	 //
+	 	 // mx_del_intarr(&matrix, 3);
+	 	p = p->next;
+	 	}
 	
 	// pop_front_minways(&matrix);
 

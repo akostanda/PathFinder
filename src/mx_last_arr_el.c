@@ -1,6 +1,6 @@
 #include "../inc/pathfinder.h"
 
-int mx_last_arr_el(unsigned long *arr) {
+int mx_last_arr_el(unsigned int *arr) {
     int width = mx_arrlen(arr);
     int last_index = 0;
 

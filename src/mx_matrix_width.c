@@ -5,7 +5,7 @@ int mx_matrix_width(const char *file) {
     int width;
 
     strmatrix = mx_file_to_arr(file);
-    width = mx_atoi(strmatrix[0]);
+    width = mx_atoi_error(strmatrix[0]);
     mx_del_strarr(&strmatrix);
     return width;
 }

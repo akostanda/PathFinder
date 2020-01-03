@@ -40,19 +40,20 @@ static void pop_front_ways(t_ways **head) {
 static int **matrix_filling_cycle(const char *file, int **matrix) {
     t_ways *ways = mx_ways_list_creating(file);
     t_ways *p = NULL;
-    int width = mx_matrix_width(file);
+    // int width = mx_matrix_width(file);
     
-    for (int i = 0; i < width; i++) {
-        for (int j = 0; j < width; j++) {
+    // for (int i = 0; i < width; i++) {
+    //     for (int j = 0; j < width; j++) {
             for (p = ways; p != NULL; p = p->next) {
-                if (i == p->top1 && j == p->top2) {
-                    matrix[i][j] = p->distance;
-                    matrix[j][i] = p->distance;
-                    break;
-                }
+                if (matrix[p->top1][p->top2] > p->distance) 
+                    matrix[p->top1][p->top2] = p->distance;
+                if (matrix[p->top2][p->top1] > p->distance)
+                    matrix[p->top2][p->top1] = p->distance;
+                    // break;
+                
             }
-        }
-    }
+    //     }
+    // }
     while (ways!=NULL)
         pop_front_ways(&ways);
     return matrix;

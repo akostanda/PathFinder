@@ -1,6 +1,6 @@
 #include "../inc/pathfinder.h"
 
-static void pathprint(const char *file, unsigned long *i_way_arr) {
+static void pathprint(const char *file, unsigned int *i_way_arr) {
     char *island_name = NULL;
     int last_i = mx_last_arr_el(i_way_arr);
 
@@ -23,11 +23,11 @@ static void pathprint(const char *file, unsigned long *i_way_arr) {
     mx_strdel(&island_name);
 }
 
-static void destinationprint(unsigned long *i_way_arr, unsigned long **matrix) {
+static void destinationprint(unsigned int *i_way_arr, unsigned int **matrix) {
     int last_i = mx_last_arr_el(i_way_arr);
 
     mx_printstr("\nDistance: ");
-    for (int i = 0; matrix[2][i] != MAX_INT && matrix[2][i] != MAX_LU; i++) {
+    for (int i = 0; matrix[2][i] != MAX_INT && matrix[2][i] != MAX_U; i++) {
         if(i_way_arr[1] == matrix[2][i]) {
             mx_printint(matrix[0][i]);
             break;
@@ -35,8 +35,8 @@ static void destinationprint(unsigned long *i_way_arr, unsigned long **matrix) {
     }
     if (last_i > 2) {
         int p = 2;
-        for (; i_way_arr[p] != MAX_LU; p++) {
-            for (int j = 0; matrix[2][j] != MAX_INT && matrix[2][j] != MAX_LU; j++) {
+        for (; i_way_arr[p] != MAX_U; p++) {
+            for (int j = 0; matrix[2][j] != MAX_INT && matrix[2][j] != MAX_U; j++) {
                 if(i_way_arr[p] == matrix[2][j] && i_way_arr[p - 1] == matrix[1][j]) {
                     mx_printstr(" + ");
                     mx_islands_way_length(matrix, matrix[1][j], matrix[2][j]);
@@ -46,14 +46,14 @@ static void destinationprint(unsigned long *i_way_arr, unsigned long **matrix) {
     }
 }
 
-static void routeprint(const char *file, unsigned long *i_way_arr, unsigned long **matrix) {
+static void routeprint(const char *file, unsigned int *i_way_arr, unsigned int **matrix) {
     int last_i = mx_last_arr_el(i_way_arr);
 
     pathprint(file, i_way_arr);
     destinationprint(i_way_arr, matrix);
     if (last_i > 2) {
             mx_printstr(" = ");
-        for (int k = 0; matrix[2][k] != MAX_INT && matrix[2][k] != MAX_LU; k++) {
+        for (int k = 0; matrix[2][k] != MAX_INT && matrix[2][k] != MAX_U; k++) {
             if(i_way_arr[last_i - 1] == matrix[2][k]) {
                 mx_printint(matrix[0][k]);
                 break;
@@ -76,7 +76,7 @@ static void allwaysprint(t_pointers *point, int new_island_index, int island_des
     if (point->link->matrix[1][island_destination] == point->link->matrix[2][point->link->island_index]) {
         point->link->i_way_arr[new_matrix_index] = point->link->matrix[2][island_destination];
         for (count = 0; point->link->i_way_arr[count] != MAX_INT && count < width; count++);
-        count > 2 ? mx_luarr_reverse(point->link->i_way_arr, 1, count) : ((void) 0);
+        count > 2 ? mx_uarr_reverse(point->link->i_way_arr, 1, count) : ((void) 0);
         routeprint(point->file, point->link->i_way_arr, point->link->matrix);
         // printf("\n");
         // for (int k = 0; (k < width && point->link->matrix[0][k] != MAX_INT); k++)
@@ -84,7 +84,7 @@ static void allwaysprint(t_pointers *point, int new_island_index, int island_des
         // printf("\n\n");
     }
     else {
-        while (point->link->matrix[2][new_destination] != MAX_INT && point->link->matrix[2][new_destination] != MAX_LU) {
+        while (point->link->matrix[2][new_destination] != MAX_INT && point->link->matrix[2][new_destination] != MAX_U) {
             if (point->link->matrix[2][new_destination] == point->link->matrix[1][island_destination])
                 allwaysprint(point, island_destination, new_destination, new_matrix_index);
             new_destination++;
@@ -102,8 +102,8 @@ void mx_matrix_parsing(const char *file, int island_index, int *size) {
     point->file = file;
     point->link = n;
     n->matrix = mx_nonrepeating_matrix(file, island_index, size);
-    n->i_way_arr = (unsigned long *)malloc(sizeof(unsigned long) * width + 1);
-    n->i_way_arr[width] = MAX_LU;
+    n->i_way_arr = (unsigned int *)malloc(sizeof(unsigned int) * width + 1);
+    n->i_way_arr[width] = MAX_U;
     for (; n->matrix[0][n->island_index] != 0; n->island_index++);
     n->k = n->island_index + 1;
     for (; ((n->k < width * (*size)) && n->matrix[0][n->k] != MAX_INT); n->k++) {
@@ -111,7 +111,7 @@ void mx_matrix_parsing(const char *file, int island_index, int *size) {
             n->i_way_arr[n->i] = MAX_INT;
         allwaysprint(point, n->island_index, n->k, new_matrix_index);
     }
-    mx_del_lu(&n->i_way_arr);
-    mx_del_luarr(&n->matrix, 3);
+    mx_del_u(&n->i_way_arr);
+    mx_del_uarr(&n->matrix, 3);
     mx_pop_poinnode(&point);  
 }

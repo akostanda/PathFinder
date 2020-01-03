@@ -1,6 +1,6 @@
 #include "../inc/pathfinder.h"
 
-static void minways_filter(const char *file, t_minways **list, unsigned long **minwaymat) {
+static void minways_filter(const char *file, t_minways **list, unsigned int **minwaymat) {
     t_minways *pl = *list;
     int width = mx_matrix_width(file);
     int count = 0;
@@ -20,7 +20,7 @@ static void minways_filter(const char *file, t_minways **list, unsigned long **m
     mx_push_back_minways(file, list, minwaymat);
 }
 
-void mx_push_filter(const char *file, t_minways **list, unsigned long **minwaymat) {
+void mx_push_filter(const char *file, t_minways **list, unsigned int **minwaymat) {
     t_minways *pl = *list;
 
     if (pl == NULL) {
