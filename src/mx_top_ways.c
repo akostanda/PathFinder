@@ -1,9 +1,8 @@
 #include "../inc/pathfinder.h"
 
-unsigned int **mx_top_ways(const char *file, int index) {
-    int **matrix = mx_matrix_filling(file);
+unsigned int **mx_top_ways(const char *file, int index, const int width) {
+    int **matrix = mx_matrix_filling(file, width);
     unsigned int **waymatrix = NULL;
-    int width = mx_matrix_width(file);
 
     waymatrix = (unsigned int **)malloc(sizeof(unsigned int *) * 3);
     for (int i = 0; i < 3; i++) {
@@ -12,7 +11,9 @@ unsigned int **mx_top_ways(const char *file, int index) {
             if (i == 0)
                 waymatrix[i][j] = matrix[index][j];
             if (i == 1 && matrix[index][j] != MAX_INT)
-                    waymatrix[1][j] = index;
+                waymatrix[i][j] = index;
+            if (i == 2)
+                waymatrix[i][j] = MAX_INT;
         }
     }
     mx_del_intarr(&matrix, width);

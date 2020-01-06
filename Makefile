@@ -8,7 +8,8 @@ SRC = src/main.c \
 		src/mx_allminways_matrix.c \
 		src/mx_arrlen.c \
 		src/mx_atoi.c \
-		src/mx_atoi_error.c \
+		src/mx_atoi_distance_error.c \
+		src/mx_atoi_islands_error.c \
 		src/mx_create_minwaynode.c \
 		src/mx_create_poinnode.c \
 		src/mx_count_dbl_words.c \
@@ -20,6 +21,7 @@ SRC = src/main.c \
 		src/mx_del_uararr.c \
 		src/mx_del_uarr.c \
 		src/mx_file_to_arr.c \
+		src/mx_isalpha.c \
 		src/mx_islands_name.c \
 		src/mx_islands_way_length.c \
 		src/mx_last_arr_el.c \
@@ -51,7 +53,8 @@ OBJ = main.o \
 		mx_allminways_matrix.o \
 		mx_arrlen.o \
 		mx_atoi.o \
-		mx_atoi_error.o \
+		mx_atoi_distance_error.o \
+		mx_atoi_islands_error.o \
 		mx_create_minwaynode.o \
 		mx_create_poinnode.o \
 		mx_count_dbl_words.o \
@@ -63,6 +66,7 @@ OBJ = main.o \
 		mx_del_uararr.o \
 		mx_del_uarr.o \
 		mx_file_to_arr.o \
+		mx_isalpha.o \
 		mx_islands_name.o \
 		mx_islands_way_length.o \
 		mx_last_arr_el.o \

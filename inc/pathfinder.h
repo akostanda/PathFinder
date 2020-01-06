@@ -27,6 +27,7 @@ typedef struct  s_minways {
 typedef struct  s_ints {
 	int index;
     int pivot;
+    int width;
     int y;
     int x;
     int i;
@@ -36,8 +37,8 @@ typedef struct  s_ints {
     int new_island_index;
     int island_destination;
     int new_matrix_index;
-    unsigned int **matrix;
-    unsigned int *i_way_arr;
+    unsigned int **mat;
+    unsigned int *i_w_a;
 } t_ints;
 
 typedef struct  s_pointers {
@@ -45,44 +46,55 @@ typedef struct  s_pointers {
     t_ints *link;
 } t_pointers;
 
-bool mx_ways_stopper(const char *file, unsigned int **minwaymat);
+bool mx_isalpha(int c);
+bool mx_ways_stopper(unsigned int **minwaymat, const int width);
 char **mx_file_to_arr(const char *file);
 char *mx_islands_name(const char *file, char **island_name, int index);
 char **mx_str_dbl_split(const char *s, char c, char b);
 int mx_arrlen(unsigned int *arr);
 int mx_atoi(const char *str);
-int mx_atoi_error(const char *str);
+int mx_atoi_distance_error(const char *str);
+int mx_atoi_islands_error(const char *str);
 int mx_count_dbl_words(const char *str, char c, char b);
 int mx_last_arr_el(unsigned int *arr);
-int **mx_matrix_filling(const char *file);
+int **mx_matrix_filling(const char *file, const int width);
 int mx_matrix_width(const char *file);
 t_ints  *mx_create_intnode();
-t_minways *mx_allminways_list_creating(const char *file);
-t_minways  *mx_create_minwaynode(const char *file, unsigned int **minwaymat);
+t_minways *mx_allminways_list_creating(const char *file, const int width);
+t_minways  *mx_create_minwaynode(unsigned int **minwaymat, const int width);
 t_pointers  *mx_create_poinnode();
 t_tops  *mx_create_topnode(char *str, int i);
 t_tops *mx_tops_list_creating(const char *file);
 t_ways  *mx_create_waynode(char **str, t_tops **list);
 t_ways *mx_ways_list_creating(const char *file);
-unsigned int ***mx_allminways_matrix(const char *file, int island_index, int *size);
-unsigned int **mx_nonrepeating_matrix(const char *file, int island_index, int *size);
-unsigned int **mx_top_ways(const char *file, int index);
-void mx_allmin_ways(const char *file, unsigned int **minwaymat, t_ints *n, t_minways **list);
+unsigned int ***mx_allminways_matrix(const char *file, int island_index,
+                                                int *size, const int width);
+unsigned int **mx_nonrepeating_matrix(const char *file, int island_index,
+                                                int *size, const int width);
+unsigned int **mx_top_ways(const char *file, int index, const int width);
+void mx_allmin_ways(const char *file, unsigned int **minwaymat, t_ints *n,
+                                                            t_minways **list);
 void mx_del_intarr(int ***arr, int size);
 void mx_del_u(unsigned int **arr);
 void mx_del_uararr(unsigned int ****arr, int size);
 void mx_del_uarr(unsigned int ***arr, int size);
-void mx_islands_way_length(unsigned int **matrix, unsigned int first_island, unsigned int second_island);
-void mx_min_ways(const char *file, unsigned int **minwaymat, int index, int *pivot);
+void mx_islands_way_length(unsigned int **matrix, unsigned int first_island,
+                                                unsigned int second_island);
+void mx_matrix_parsing(const char *file, int iland_index, int *size,
+                                                            const int width);
+void mx_min_ways(unsigned int **minwaymat, int index, int *pivot,
+                                                            const int width);
 void mx_path_finder(const char *file);
 void mx_pop_front_tops(t_tops **head);
 void mx_pop_poinnode(t_pointers **point);
 void mx_printerr(const char *s);
-void mx_push_back_minways(const char *file, t_minways **list, unsigned int **minwaym);
+void mx_push_back_minways(t_minways **list, unsigned int **minwaym,
+                                                            const int width);
 void mx_push_back_tops(t_tops **list, char *str, int i);
 void mx_push_back_ways(t_ways **list, t_tops ** list2, char **str);
-void mx_push_filter(const char *file, t_minways **list, unsigned int **minwaymat);
+void mx_push_filter(t_minways **list, unsigned int **minwaymat,
+                                                            const int width);
 void mx_swap_u(unsigned int *i1, unsigned int *i2);
-void mx_uarr_reverse(unsigned int *arr, int start, int size);void mx_matrix_parsing(const char *file, int island_index, int *size);
+void mx_uarr_reverse(unsigned int *arr, int start, int size);
 
 #endif

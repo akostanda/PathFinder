@@ -7,5 +7,5 @@ void mx_pop_poinnode(t_pointers **point) {
         (*point)->link = NULL;
         free(*point);
         *point = NULL;
-    }  
+    }
 }

@@ -1,7 +1,6 @@
 #include "../inc/pathfinder.h"
 
-static unsigned int **nonrepmat_creation(const char *file, int *size) {
-    int width = mx_matrix_width(file);
+static unsigned int **nonrepmat_creation(int *size, const int width) {
     unsigned int **norepmat = NULL;
 
     norepmat = (unsigned int **)malloc(sizeof(unsigned int *) * (3));
@@ -15,7 +14,8 @@ static unsigned int **nonrepmat_creation(const char *file, int *size) {
     return norepmat;
 }
 
-static void nonrepeating_condition(unsigned int **norepmat, unsigned int ***allmatrix, t_ints *n, int *k) {
+static void nonrepeating_condition(unsigned int **norepmat,
+                            unsigned int ***allmatrix, t_ints *n, int *k) {
     int count = 0;
 
     for (int i = (n->y); i > 0; i--) {
@@ -29,10 +29,11 @@ static void nonrepeating_condition(unsigned int **norepmat, unsigned int ***allm
     }
 }
 
-static unsigned int **nonrepeating_matrix_filling(const char *file, int island_index, int *size) {
-    unsigned int ***allmatrix = mx_allminways_matrix(file, island_index, size);
-    int width = mx_matrix_width(file);
-    unsigned int **norepmat = nonrepmat_creation(file, size);
+static unsigned int **nonrepeating_matrix_filling(const char *file,
+                            int island_index, int *size, const int width) {
+    unsigned int ***allmatrix = mx_allminways_matrix(file,
+                                                island_index, size, width);
+    unsigned int **norepmat = nonrepmat_creation(size, width);
     t_ints *n = mx_create_intnode();
 
     for (; n->x < width; n->x++) {
@@ -52,9 +53,10 @@ static unsigned int **nonrepeating_matrix_filling(const char *file, int island_i
     return norepmat;
 }
 
-unsigned int **mx_nonrepeating_matrix(const char *file, int island_index, int *size) {
-    unsigned int **norepmat = nonrepeating_matrix_filling(file, island_index, size);
-    int width = mx_matrix_width(file);
+unsigned int **mx_nonrepeating_matrix(const char *file, int island_index,
+                                                int *size, const int width) {
+    unsigned int **norepmat = nonrepeating_matrix_filling(file,
+                                                island_index, size, width);
     int buf;
 
     for (int i = 0; i < (*size) * width; i++) {
@@ -64,7 +66,8 @@ unsigned int **mx_nonrepeating_matrix(const char *file, int island_index, int *s
             for (int j = 0; j < (*size) * width; j++){
                 if (norepmat[0][j] == MAX_INT)
                     break;
-                else if (norepmat[2][j] == norepmat[2][j+1] && norepmat[1][j] > norepmat[1][j + 1]) {
+                else if (norepmat[2][j] == norepmat[2][j+1]
+                                    && norepmat[1][j] > norepmat[1][j + 1]) {
                     // || ((int)norepmat[1][j] != island_index && (int)norepmat[1][j + 1] == island_index))) {
                     buf = norepmat[1][j];
                     norepmat[1][j] = norepmat[1][j + 1];

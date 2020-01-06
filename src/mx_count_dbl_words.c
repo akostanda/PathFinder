@@ -15,7 +15,7 @@ int mx_count_dbl_words(const char *str, char c, char b) {
             count++;
         }
     }
-    if (str[0] != c && str[0] != b && str[1] != '\0')
+    if (str[0] != c && str[0] != b)
         count++;
     return count;
 }

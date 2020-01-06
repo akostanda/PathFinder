@@ -1,7 +1,7 @@
 #include "../inc/pathfinder.h"
 
 void mx_islands_way_length(unsigned int **matrix,
-            unsigned int first_island, unsigned int second_island) {
+                    unsigned int first_island, unsigned int second_island) {
     int i = 0;
     int length;
 

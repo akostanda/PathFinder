@@ -1,7 +1,8 @@
 #include "../inc/pathfinder.h"
 
-void mx_push_back_minways(const char *file, t_minways **list, unsigned int **minwaym) {
-    t_minways *node = mx_create_minwaynode(file, minwaym);
+void mx_push_back_minways(t_minways **list, unsigned int **minwaym,
+                                                            const int width) {
+    t_minways *node = mx_create_minwaynode(minwaym, width);
     t_minways *pl = *list;
 
     if (pl == NULL) {
