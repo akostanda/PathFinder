@@ -1,6 +1,7 @@
 NAME = libmx.a
 
-SRC = src/mx_binary_search.c \
+SRC = src/mx_atoi.c \
+		src/mx_binary_search.c \
 		src/mx_bubble_sort.c \
 		src/mx_count_substr.c \
 		src/mx_count_words.c \
@@ -65,7 +66,8 @@ SRC = src/mx_binary_search.c \
 		src/mx_swap_char.c \
 		src/mx_swap_str.c \
 
-OBJ = mx_binary_search.o \
+OBJ = mx_atoi.o \
+		mx_binary_search.o \
 		mx_bubble_sort.o \
 		mx_count_substr.o \
 		mx_count_words.o \
