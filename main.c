@@ -1,4 +1,4 @@
-m#include <stdio.h>
+#include <stdio.h>
 #include "inc/pathfinder.h"
 #include "libmx/inc/libmx.h"
 
@@ -87,7 +87,7 @@ int main() {
 	//  	 //
 	//  	 // mx_del_intarr(&matrix, 3);
 	//  	p = p->next;
-	 	}
+	 	
 	
 	// pop_front_minways(&matrix);
 

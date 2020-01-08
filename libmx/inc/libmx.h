@@ -12,6 +12,15 @@ typedef struct  s_list {
     struct s_list *next;
 } t_list;
 
+typedef struct  s_data {
+
+    size_t i;
+    int j;
+    size_t buf_size;
+    char delim;
+    char *buf;
+} t_data;
+
 bool mx_isdigit(int c);
 bool mx_isspace(char c);
 char *mx_del_extra_spaces(const char *str);
@@ -50,6 +59,7 @@ int mx_read_line(char **lineptr, size_t buf_size, char delim, const int fd);
 int mx_sqrt(int x);
 int mx_strcmp(const char *s1, const char *s2);
 int mx_strlen(const char *s);
+t_data  *mx_create_datanode();
 t_list *mx_create_node(void *data);
 t_list *mx_sort_list(t_list *lst, bool (*cmp)(void *, void *));
 unsigned long mx_hex_to_nbr(const char *hex);

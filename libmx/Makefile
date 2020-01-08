@@ -5,6 +5,7 @@ SRC = src/mx_atoi.c \
 		src/mx_bubble_sort.c \
 		src/mx_count_substr.c \
 		src/mx_count_words.c \
+		src/mx_create_datanode.c \
 		src/mx_create_node.c \
 		src/mx_del_extra_spaces.c \
         src/mx_del_strarr.c \
@@ -71,6 +72,7 @@ OBJ = mx_atoi.o \
 		mx_bubble_sort.o \
 		mx_count_substr.o \
 		mx_count_words.o \
+		mx_create_datanode.o \
 		mx_create_node.o \
 		mx_del_extra_spaces.o \
 		mx_del_strarr.o \
