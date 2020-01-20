@@ -12,6 +12,23 @@ typedef struct  s_list {
     struct s_list *next;
 } t_list;
 
+typedef struct  s_data {
+    size_t i;
+    int j;
+    size_t buf_size;
+    char delim;
+    char *buf;
+} t_data;
+
+typedef struct  s_lints {
+    int pivot ;
+    int i;
+    int j;
+    int count;
+    int newL;
+    int newR;
+} t_lints;
+
 bool mx_isdigit(int c);
 bool mx_isspace(char c);
 char *mx_del_extra_spaces(const char *str);
@@ -47,9 +64,13 @@ int mx_get_substr_index(const char *str, const char *subi);
 int mx_list_size(t_list *list);
 int mx_memcmp(const void *s1, const void *s2, size_t n);
 int mx_nbrlen(int nbr);
+int mx_read_line(char **lineptr, size_t buf_size, char delim, const int fd);
+int mx_quicksort(char **arr, int left, int right);
 int mx_sqrt(int x);
 int mx_strcmp(const char *s1, const char *s2);
 int mx_strlen(const char *s);
+t_data  *mx_create_datanode();
+t_lints *mx_create_lintnode();
 t_list *mx_create_node(void *data);
 t_list *mx_sort_list(t_list *lst, bool (*cmp)(void *, void *));
 unsigned long mx_hex_to_nbr(const char *hex);

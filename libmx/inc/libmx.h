@@ -21,6 +21,7 @@ typedef struct  s_data {
     char *buf;
 } t_data;
 
+int mx_atoi(const char *str);
 bool mx_isdigit(int c);
 bool mx_isspace(char c);
 char *mx_del_extra_spaces(const char *str);

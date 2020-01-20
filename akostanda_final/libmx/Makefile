@@ -5,6 +5,8 @@ SRC = src/mx_atoi.c \
 		src/mx_bubble_sort.c \
 		src/mx_count_substr.c \
 		src/mx_count_words.c \
+		src/mx_create_datanode.c \
+		src/mx_create_lintnode.c \
 		src/mx_create_node.c \
 		src/mx_del_extra_spaces.c \
         src/mx_del_strarr.c \
@@ -37,7 +39,9 @@ SRC = src/mx_atoi.c \
 		src/mx_print_strarr.c \
 		src/mx_push_back.c \
 		src/mx_push_front.c \
+		src/mx_quicksort.c \
 		src/mx_realloc.c \
+		src/mx_read_line.c \
 		src/mx_replace_substr.c \
 		src/mx_sort_list.c \
 		src/mx_spacedel.c \
@@ -70,6 +74,8 @@ OBJ = mx_atoi.o \
 		mx_bubble_sort.o \
 		mx_count_substr.o \
 		mx_count_words.o \
+		mx_create_datanode.o \
+		mx_create_lintnode.o \
 		mx_create_node.o \
 		mx_del_extra_spaces.o \
 		mx_del_strarr.o \
@@ -102,6 +108,8 @@ OBJ = mx_atoi.o \
 		mx_print_strarr.o \
 		mx_push_back.o \
 		mx_push_front.o \
+		mx_quicksort.o \
+		mx_read_line.o \
 		mx_realloc.o \
 		mx_replace_substr.o \
 		mx_sort_list.o \
